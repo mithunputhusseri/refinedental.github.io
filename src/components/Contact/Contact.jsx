@@ -66,7 +66,13 @@ const Contact = () => {
                             <div className="mb-5 p-2 rounded" style={{ background: '#f8f9fa' }}>
                             <div>
                     <div className="container">
-                        <iframe style={{ border: 0, width: "100%", height: "350px" }} src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=ReFine Dental & Facial Aesthetic Centre&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" frameborder="0" allowfullscreen></iframe>
+                        <iframe
+                            title="Refine Dental location"
+                            style={{ border: 0, width: "100%", height: "350px" }}
+                            src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=ReFine Dental & Facial Aesthetic Centre&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                            frameBorder="0"
+                            allowFullScreen
+                        />
                     </div>
                 </div>
                                 
