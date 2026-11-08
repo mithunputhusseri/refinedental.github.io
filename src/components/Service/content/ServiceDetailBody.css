@@ -1,0 +1,64 @@
+.service-detail-body-section .service-detail-page-inner {
+    margin-top: 0.65rem;
+    margin-bottom: 100px;
+}
+
+.service-detail-body-section .service-detail-back {
+    margin-bottom: 0.35rem;
+}
+
+.service-detail-body {
+    color: #3d4f65;
+    line-height: 1.75;
+}
+
+.service-detail-body-heading {
+    color: #223a66;
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+.service-detail-body > div:first-child .service-detail-body-heading {
+    margin-top: 0.25rem;
+}
+
+.service-detail-body ul,
+.service-detail-body ol {
+    padding-left: 1.35rem;
+    margin-bottom: 1rem;
+}
+
+.service-detail-body li {
+    margin-bottom: 0.45rem;
+}
+
+.service-detail-faq li {
+    list-style: none;
+    margin-left: -1.35rem;
+    padding-left: 0;
+}
+
+.service-detail-cta {
+    margin-top: 1.5rem;
+    font-weight: 600;
+    color: #2c4964;
+}
+
+.service-detail-book-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.65rem 1.75rem;
+    border-radius: 50px;
+    background: #f26522;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.service-detail-book-btn:hover {
+    background: #e05818;
+    color: #fff;
+}

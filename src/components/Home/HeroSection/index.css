@@ -1,31 +1,83 @@
 #hero {
+    --header-offset: calc(40px + 5.75rem);
     width: 100%;
-    height: 90vh;
-    background: url("../../../images/img/home_1.jpg") top center;
+    min-height: calc(90vh - var(--header-offset));
+    height: auto;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    background-image: url("../../../images/img/hero-clinic-reception.jpg");
+    background-repeat: no-repeat;
     background-size: cover;
+    background-position: 14% 32%;
+    background-attachment: scroll;
     margin-bottom: -115px;
-    margin-top: 80px;
+    margin-top: var(--header-offset);
   }
-  
-  #hero .container {
+
+  #hero .hero-layout {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    min-height: calc(85vh - var(--header-offset) - 3rem);
+    width: 100%;
   }
-  
-  #hero h1 {
-    margin: 0;
-    font-size: 48px;
+
+  #hero .hero-right-copy {
+    max-width: 32rem;
+    margin-left: auto;
+    text-align: right;
+    font-family: 'Montserrat', 'Poppins', sans-serif;
+  }
+
+  #hero .hero-location {
+    margin: 0 0 0.85rem;
+    font-family: 'Montserrat', 'Poppins', sans-serif;
+    font-size: clamp(0.75rem, 1.25vw, 0.9rem);
     font-weight: 700;
-    line-height: 56px;
+    line-height: 1.45;
     text-transform: uppercase;
-    color: #2c4964;
+    letter-spacing: 0.14em;
+    color: #fff;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.45);
   }
-  
-  #hero h2 {
-    color: #2c4964;
-    margin: 10px 0 0 0;
-    font-size: 24px;
+
+  #hero .hero-brand-name {
+    margin: 0;
+    font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+    font-size: clamp(2.75rem, 6.8vw, 5.25rem);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: 0.02em;
+    color: #fff;
+    text-transform: none;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.5);
+    -webkit-font-smoothing: antialiased;
   }
-  
+
+  #hero .hero-brand-sub {
+    display: block;
+    margin-top: 0.45rem;
+    font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+    font-size: clamp(1.55rem, 3.9vw, 2.85rem);
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: #fff;
+  }
+
+  #hero .hero-tagline {
+    margin: 1rem 0 0;
+    font-family: 'Montserrat', 'Poppins', sans-serif;
+    font-size: clamp(1.05rem, 2.1vw, 1.35rem);
+    font-weight: 700;
+    line-height: 1.55;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.45);
+  }
+
   #hero .btn-get-started {
     font-family: "Raleway", sans-serif;
     text-transform: uppercase;
@@ -40,45 +92,36 @@
     color: #fff;
     background: #1977cc;
   }
-  
+
   #hero .btn-get-started:hover {
     background: #3291e6;
   }
-  
-  @media (min-width: 1024px) {
-    #hero {
-      background-attachment: fixed;
-    }
-  }
-  
+
   @media (max-width: 992px) {
     #hero {
+      --header-offset: calc(40px + 5.25rem);
       margin-bottom: 0;
-      height: 100vh;
+      min-height: calc(100vh - var(--header-offset));
+      background-position: 16% 30%;
     }
-  
-    #hero .container {
-      padding-bottom: 63px;
+
+    #hero .hero-layout {
+      min-height: calc(75vh - var(--header-offset));
+      padding-bottom: 3rem;
     }
-  
-    #hero h1 {
-      font-size: 28px;
-      line-height: 36px;
-    }
-  
-    #hero h2 {
-      font-size: 18px;
-      line-height: 24px;
-      margin-bottom: 30px;
+
+    #hero .hero-right-copy {
+      max-width: 20rem;
     }
   }
-  
+
   @media (max-width: 600px) {
     #hero {
-      height: 60vh;
+      min-height: calc(60vh - var(--header-offset));
+      background-position: 20% 28%;
     }
-    #hero .btn-get-started {
-      font-size: 12px;
-      padding: 8px 10px;
+
+    #hero .hero-right-copy {
+      max-width: 14rem;
     }
   }

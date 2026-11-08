@@ -30,8 +30,9 @@ import { useGetDoctorsQuery } from '../../redux/api/doctorApi';
 import bgImage1 from '../../images/img/banner.jpg';
 import backgroundImage from '../../images/doc/bgd.png';
 import { Image } from 'antd';
+import HomeSectionHeading from '../Shared/HomeSectionHeading';
 
-const Gallery = () => {
+const Gallery = ({ embedded = false }) => {
     // const imageArray = [img10,img11,img12,img13,img2,img3,img4,img5,img6,img7, img8, img9]
     const imageArray = [
         '/newgallery/IMG_0784 (1).png',
@@ -50,10 +51,14 @@ const Gallery = () => {
     
     return (
         <>
-            <Header />
-            <SubHeader title="Gallery"  />
-        
-        
+            {!embedded && (
+                <>
+                    <Header />
+                    <SubHeader title="Gallery" />
+                </>
+            )}
+            {embedded && <HomeSectionHeading title="Gallery" />}
+
         {/* // <section className="gallery container">
         //     <div className="text-center mb-5">
         //         <div className="section-title mb-3">

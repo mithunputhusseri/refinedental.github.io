@@ -1,0 +1,23 @@
+.service-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.service-card-link:hover {
+  color: inherit;
+}
+
+.service-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.service-card-link:hover .service-card {
+  transform: translateY(-4px);
+  box-shadow: 0 0.75rem 1.5rem rgba(25, 119, 204, 0.15) !important;
+}
+
+.service-card-link h4 {
+  color: #223a66;
+}

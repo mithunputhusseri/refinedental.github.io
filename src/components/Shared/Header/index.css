@@ -192,6 +192,38 @@
     }
 }
 
+.navbar .nav-appointment-item {
+    padding-left: 12px;
+}
+
+.navbar .nav-appointment-btn {
+    display: inline-block;
+    background: #f26522;
+    color: #fff !important;
+    border-radius: 50px;
+    padding: 8px 18px;
+    white-space: nowrap;
+    transition: 0.3s;
+    font-size: 13px;
+    font-weight: 600;
+    border: none;
+    border-bottom: none !important;
+}
+
+.navbar .nav-appointment-btn:hover {
+    background: #e05818;
+    color: #fff !important;
+    border-color: transparent !important;
+}
+
+.nav-appointment-btn--mobile {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.5rem;
+    padding: 10px 20px !important;
+}
+
 .appointment-btn {
     margin-left: 25px;
     background: #1977cc;

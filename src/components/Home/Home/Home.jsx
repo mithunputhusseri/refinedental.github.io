@@ -1,29 +1,51 @@
-import React from 'react';
-import Blog from '../Blog/Blog';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Footer from '../../Shared/Footer/Footer';
-import Testimonial from '../Testimonial/Testimonial';
 import ClinicAndSpecialities from '../ClinicAndSpecialities/ClinicAndSpecialities';
-import BookDoctor from '../BookOurDoctor/BookDoctor';
-import Availabe from '../AvailableFeatures/Available';
 import HeroSection from '../HeroSection/HeroSection';
 import InfoPage from '../InfoPage/InfoPage';
 import Header from '../../Shared/Header/Header';
-import Service from '../Services/Service';
-// import Gallery from '../Gallery/Gallery';
-import OurDoctors from '../OurDoctor/OurDoctors';
-import Icons from '../../Shared/Icons';
-
+import About from '../../About/About';
+import TestimonialsSection from '../../About/TestimonialsSection';
+import Gallery from '../../Gallery/Gallery';
+import Contact from '../../Contact/Contact';
+import { scrollToSection } from '../../Shared/scrollToSection';
+import './home-sections.css';
 
 const Home = () => {
+    const location = useLocation();
+
+    useEffect(() => {
+        const sectionId = location.state?.scrollTo;
+        if (!sectionId) return;
+
+        const timer = setTimeout(() => {
+            scrollToSection(sectionId);
+        }, 100);
+
+        return () => clearTimeout(timer);
+    }, [location.state?.scrollTo]);
+
     return (
         <>
-            {/* <Icons /> */}
             <Header />
-            <HeroSection />
-            <InfoPage />
-            {/* <Service /> */}
-            <ClinicAndSpecialities />
-            {/* <Gallery/> */}
+            <div id="home">
+                <HeroSection />
+                <InfoPage />
+                <div id="about" className="home-section">
+                    <About embedded />
+                </div>
+                <ClinicAndSpecialities />
+            </div>
+            <div id="gallery" className="home-section">
+                <Gallery embedded />
+            </div>
+            <div id="testimonials" className="home-section">
+                <TestimonialsSection embedded />
+            </div>
+            <div className="home-section">
+                <Contact embedded />
+            </div>
             <Footer />
         </>
     );

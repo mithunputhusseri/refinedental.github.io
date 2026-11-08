@@ -1,0 +1,19 @@
+.home-section,
+#contact.contact,
+#dental-services,
+#testimonials {
+    scroll-margin-top: 110px;
+}
+
+.home-section {
+    padding: 3.5rem 0;
+}
+
+#about.home-section {
+    padding-bottom: 0.75rem;
+}
+
+#gallery.home-section {
+    padding-top: 1.25rem;
+    padding-bottom: 2.5rem;
+}

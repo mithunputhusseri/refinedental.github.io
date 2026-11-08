@@ -1,0 +1,36 @@
+.service-detail-content .service-detail-page-inner {
+    margin-top: 0.65rem;
+    margin-bottom: 100px;
+}
+
+.service-detail-content .service-detail-back {
+    margin-bottom: 0.35rem;
+}
+
+.service-detail-back {
+    display: inline-block;
+    font-weight: 600;
+    color: #1977cc;
+}
+
+.service-detail-back:hover {
+    color: #166ab5;
+}
+
+.service-detail-points-title {
+    color: #223a66;
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-top: 0.25rem;
+    margin-bottom: 0.85rem;
+}
+
+.service-detail-list {
+    padding-left: 1.25rem;
+    color: #3d4f65;
+    line-height: 1.75;
+}
+
+.service-detail-list li {
+    margin-bottom: 0.5rem;
+}

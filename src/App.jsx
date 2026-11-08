@@ -1,5 +1,5 @@
 import './App.css';
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Home from './components/Home/Home/Home';
 import SignInForm from './components/Login/SignInForm';
 import DoctorBooking from './components/Booking/DoctorBooking/DoctorBooking';
@@ -28,9 +28,6 @@ import BlogsEdit from './components/Doctor/Blogs/BlogsEdit';
 import AddBlog from './components/Doctor/Blogs/AddBlog';
 import Blog from './components/Blog/Blog';
 import BlogDetails from './components/Blog/BlogDetails';
-import Contact from './components/Contact/Contact';
-import About from './components/About/About';
-import Service from './components/Service/Service';
 import AppointmentPage from './components/Appointment/AppointmentPage';
 import TrackAppointment from './components/TrackAppointment/TrackAppointment';
 import Treatment from './components/Doctor/Treatment/Treatment';
@@ -43,12 +40,14 @@ import Dashboard from './components/Doctor/Dashboard/Dashboard';
 import PrivateOutlet from './components/Shared/PrivateOutlet';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import NotFound from './components/UI/NotFound';
-import Gallery from './components/Gallery/Gallery';
+import ServiceDetail from './components/Service/ServiceDetail';
+import GoogleReviewFab from './components/Shared/GoogleReviewFab';
 
 function App() {
   return (
     <Router>
       <ScrollToTop />
+      <GoogleReviewFab />
       <Routes>
         <Route element={<PrivateOutlet />}>
           <Route path='/dashboard/blogs' element={<Blogs />} />
@@ -71,10 +70,11 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/blog' element={<Blog />} />
         <Route path='/blog/:id' element={<BlogDetails />} />
-        <Route path='/contact' element={<Contact />} />
-        <Route path='/about' element={<About />} />
-        <Route path='/service' element={<Service />} />
-        <Route path='/gallery' element={<Gallery />} />
+        <Route path='/contact' element={<Navigate to="/" state={{ scrollTo: 'contact' }} replace />} />
+        <Route path='/about' element={<Navigate to="/" state={{ scrollTo: 'about' }} replace />} />
+        <Route path='/service' element={<Navigate to="/" state={{ scrollTo: 'dental-services' }} replace />} />
+        <Route path='/gallery' element={<Navigate to="/" state={{ scrollTo: 'gallery' }} replace />} />
+        <Route path='/services/:slug' element={<ServiceDetail />} />
         <Route path='/reset-password/:userId/:uniqueString' element={<ForgotPassword />} />
         <Route path='/appointment' element={<AppointmentPage />} />
         <Route path='/track-appointment' element={<TrackAppointment />} />

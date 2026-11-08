@@ -24,7 +24,7 @@
 
 import React from 'react';
 import './index.css';
-import { FaFacebookSquare, FaInstagramSquare, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import { FaFacebookSquare, FaInstagramSquare, FaEnvelopeSquare, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 
 const TopHeader = () => {
     return (
@@ -40,6 +40,9 @@ const TopHeader = () => {
                     </a>
                     <a href="https://www.instagram.com/refine_dental_facial_aesthetic" target='_blank' rel="noreferrer" className="instagram">
                         <FaInstagramSquare style={{ fontSize: '1.5rem' }} />
+                    </a>
+                    <a href="mailto:refine.den.2024@gmail.com" className="email" aria-label="Email Refine Dental">
+                        <FaEnvelopeSquare style={{ fontSize: '1.5rem' }} />
                     </a>
                 </div>
             </div>

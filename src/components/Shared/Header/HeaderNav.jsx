@@ -1,10 +1,17 @@
 import { Popover } from "antd"
-import { Link, NavLink } from "react-router-dom"
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom"
 import { FaBars } from "react-icons/fa";
 import { Drawer, Button } from 'antd';
-import { FaHome, FaPhoneAlt, FaWrench, FaUserMd, FaAddressBook, FaBloggerB, FaSignInAlt } from "react-icons/fa";
+import { FaHome, FaPhoneAlt, FaWrench, FaAddressBook, FaCalendarCheck } from "react-icons/fa";
+import { scrollToSection } from "../scrollToSection";
+
+const sectionNavClass = "nav-link scrollto";
+const WHATSAPP_URL = 'https://wa.me/9113206109';
 
 const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
+    const navigate = useNavigate();
+    const location = useLocation();
+
     const showDrawer = () => {
         setOpen(true);
     };
@@ -12,16 +19,51 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
     const onClose = () => {
         setOpen(false);
     };
+
+    const goToSection = (e, sectionId) => {
+        e.preventDefault();
+        onClose();
+
+        if (location.pathname !== '/') {
+            navigate('/', { state: { scrollTo: sectionId } });
+            return;
+        }
+
+        scrollToSection(sectionId);
+    };
+
     return (
         <>
             <nav id="navbar" className="navbar order-last order-lg-0">
                 <ul>
-                    <li><NavLink to={'/'} className={({ isActive }) => isActive ? "nav-link scrollto active" : ""}>Home</NavLink></li>
-                    <li><NavLink to={'/about'} className={({ isActive }) => isActive ? "nav-link scrollto active" : ""}>About</NavLink></li>
-                    <li><NavLink to={'/service'} className={({ isActive }) => isActive ? "nav-link scrollto active" : ""}>Service</NavLink></li>
-                    <li><NavLink to={'/gallery'} className={({ isActive }) => isActive ? "nav-link scrollto active" : ""}>Gallery</NavLink></li>
-                    <li><NavLink to={'/contact'} className={({ isActive }) => isActive ? "nav-link scrollto active" : ""}>Contact</NavLink></li>
-                   </ul>
+                    <li>
+                        <NavLink to={'/'} end className={({ isActive }) => isActive ? "nav-link scrollto active" : "nav-link scrollto"}>
+                            Home
+                        </NavLink>
+                    </li>
+                    <li>
+                        <a href="#about" className={sectionNavClass} onClick={(e) => goToSection(e, 'about')}>About</a>
+                    </li>
+                    <li>
+                        <a href="#dental-services" className={sectionNavClass} onClick={(e) => goToSection(e, 'dental-services')}>Service</a>
+                    </li>
+                    <li>
+                        <a href="#gallery" className={sectionNavClass} onClick={(e) => goToSection(e, 'gallery')}>Gallery</a>
+                    </li>
+                    <li>
+                        <a href="#contact" className={sectionNavClass} onClick={(e) => goToSection(e, 'contact')}>Contact</a>
+                    </li>
+                    <li className="nav-appointment-item">
+                        <a
+                            href={WHATSAPP_URL}
+                            className="nav-appointment-btn"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Book Appointment
+                        </a>
+                    </li>
+                </ul>
                 {isLoggedIn &&
                     <div>
                         <Popover content={content}>
@@ -42,11 +84,42 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
                 extra={<Button type="primary" onClick={onClose}> Close</Button>}
             >
                 <ul className="mobile-menu-nav">
-                    <li><NavLink to={'/'} className={({ isActive }) => isActive ? "nav-link scrollto active" : ""}><FaHome className="icon" />Home</NavLink></li>
-                    <li><NavLink to={'/about'} className={({ isActive }) => isActive ? "nav-link scrollto active" : ""}><FaAddressBook className="icon" />About</NavLink></li>
-                    <li><NavLink to={'/service'} className={({ isActive }) => isActive ? "nav-link scrollto active" : ""}><FaWrench className="icon" />Service</NavLink></li>
-                    <li><NavLink to={'/gallery'} className={({ isActive }) => isActive ? "nav-link scrollto active" : ""}><FaWrench className="icon" />Gallery</NavLink></li>
-                    <li><NavLink to={'/contact'} className={({ isActive }) => isActive ? "nav-link scrollto active" : ""}><FaPhoneAlt className="icon" />Contact</NavLink></li>
+                    <li>
+                        <NavLink to={'/'} end onClick={onClose} className={({ isActive }) => isActive ? "nav-link scrollto active" : "nav-link scrollto"}>
+                            <FaHome className="icon" />Home
+                        </NavLink>
+                    </li>
+                    <li>
+                        <a href="#about" className={sectionNavClass} onClick={(e) => goToSection(e, 'about')}>
+                            <FaAddressBook className="icon" />About
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#dental-services" className={sectionNavClass} onClick={(e) => goToSection(e, 'dental-services')}>
+                            <FaWrench className="icon" />Service
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#gallery" className={sectionNavClass} onClick={(e) => goToSection(e, 'gallery')}>
+                            <FaWrench className="icon" />Gallery
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#contact" className={sectionNavClass} onClick={(e) => goToSection(e, 'contact')}>
+                            <FaPhoneAlt className="icon" />Contact
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            href={WHATSAPP_URL}
+                            className="nav-appointment-btn nav-appointment-btn--mobile"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={onClose}
+                        >
+                            <FaCalendarCheck className="icon" />Book Appointment
+                        </a>
+                    </li>
                 </ul>
             </Drawer>
         </>

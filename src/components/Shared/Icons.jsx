@@ -53,9 +53,6 @@ const ContactIcons = () => {
       <a href="https://wa.me/9113206109" target="_blank" rel="noopener noreferrer" style={{ ...styles.icon, ...styles.whatsappIcon }}>
         <i className="fab fa-whatsapp"></i>
       </a>
-      <a href="mailto:refine.den.2024@gmail.com" style={styles.icon}>
-        <i className="fas fa-envelope"></i>
-      </a>
     </div>
   );
 };

@@ -7,6 +7,7 @@ import Footer from '../Shared/Footer/Footer';
 import ImageHeading from '../../images/doc/doctor 5.jpg'
 import img from '../../images/logo1.png'
 import SubHeader from '../Shared/SubHeader';
+import HomeSectionHeading from '../Shared/HomeSectionHeading';
 import { useGetAllBlogsQuery } from '../../redux/api/blogApi';
 import { Empty, message } from 'antd';
 import { Link } from 'react-router-dom';
@@ -38,7 +39,7 @@ const overlayStyle1 = {
     opacity: '0.9',
     background: '#223a66',
 };
-const About = () => {
+const About = ({ embedded = false }) => {
     
     const { data, isError, isLoading } = useGetAllBlogsQuery({ limit: 4 });
     const { data: doctorData, isLoading: DoctorIsLoading, isError: doctorIsError } = useGetDoctorsQuery({ limit: 4 });
@@ -47,41 +48,41 @@ const About = () => {
     const doctors = doctorData?.doctors;
 
     let doctorContent = (
-    <div className={sectionStyle1}>
-    <div className="doctor-container d-flex justify-content-center">
-      <div className="col-lg-3 col-md-6 col-sm-6">
-          <div className="card shadow border-0 mb-5 mb-lg-0">
-            <img src={amalimage2} className="img-fluid w-100" alt="Dr. Amal Hari" />
-            <div className="p-2">
-              <h4 className="mt-4 mb-0" style={{ color: '#223a66' }}>
-                Dr. Amal Hari&nbsp;
-                <span className="mds-text"> MDS</span>
-                </h4>
-              <p>Periodontist & Implantologist</p>
+        <div className="doctor-container about-team d-flex justify-content-center flex-wrap">
+            <div className="col-lg-3 col-md-6 col-sm-6">
+                <div className="card shadow border-0 mb-5 mb-lg-0 about-team-card about-team-card--first">
+                    <div className="about-team-photo">
+                        <img src={amalimage2} className="img-fluid w-100 about-team-img" alt="Dr. Amal Hari" />
+                    </div>
+                    <div className="p-2">
+                        <h4 className="mt-4 mb-0" style={{ color: '#223a66' }}>
+                            Dr. Amal Hari&nbsp;
+                            <span className="mds-text"> MDS</span>
+                        </h4>
+                        <p>Periodontist & Implantologist</p>
+                    </div>
+                </div>
             </div>
-          </div>
-      </div>
-      <div className="col-lg-3 col-md-6 col-sm-6">
-          <div className="card shadow border-0 mb-5 mb-lg-0">
-            <img src={nikhilimage2} className="img-fluid w-100" alt="Dr. Amal Hari" />
-            <div className="p-2">
-              <h4 className="mt-4 mb-0" style={{ color: '#223a66' }}>
-                Dr. Nikhil Johnson&nbsp;
-                <span className="mds-text"> MDS</span>
-                </h4>
-              <p>Orthodontist</p>
+            <div className="col-lg-3 col-md-6 col-sm-6">
+                <div className="card shadow border-0 mb-5 mb-lg-0 about-team-card about-team-card--second">
+                    <div className="about-team-photo">
+                        <img src={nikhilimage2} className="img-fluid w-100 about-team-img" alt="Dr. Nikhil Johnson" />
+                    </div>
+                    <div className="p-2">
+                        <h4 className="mt-4 mb-0" style={{ color: '#223a66' }}>
+                            Dr. Nikhil Johnson&nbsp;
+                            <span className="mds-text"> MDS</span>
+                        </h4>
+                        <p>Orthodontist</p>
+                    </div>
+                </div>
             </div>
-          </div>
-        
-      </div>
-    </div>
-    </div>
-    
-  );
-    let content = null;
+        </div>
+    );
+    let blogContent = null;
 
-    if (!isLoading && !isError && blogData?.length === 0) content = <Empty />
-    if (!isLoading && !isError && blogData?.length > 0) content =
+    if (!isLoading && !isError && blogData?.length === 0) blogContent = <Empty />
+    if (!isLoading && !isError && blogData?.length > 0) blogContent =
         <>
             {
                 blogData && blogData?.map((item, id) => (
@@ -102,16 +103,33 @@ const About = () => {
                 ))
             }
         </>
-    return (
+    const pageMargins = embedded
+        ? { marginBottom: 12, marginTop: 0 }
+        : { marginBottom: 100, marginTop: 100 };
+
+    const pageContent = (
         <>
-            <Header />
-            <SubHeader title="about us"  />
+            {!embedded && (
+                <>
+                    <Header />
+                    <SubHeader title="about us" />
+                </>
+            )}
+            {embedded && <HomeSectionHeading title="About us" />}
+            <div className="container about-intro">
+                <div className="row justify-content-center">
+                    <div className="col-lg-10 col-xl-9">
+                        <p className="about-intro-text text-center form-text mb-0">
+                            Considering Refine Dental for your dental needs can ensure a positive experience. We are the best dental clinic in Vidyaranyapura (Bengaluru) who deliver evidence based dental treatments to help you look, smile and feel great. Our highly qualified and experienced dentists prioritize top-notch care, offering a comprehensive range of services to address all your dental concerns. From routine checkups and cleanings to advanced procedures, our focus is on providing the best possible solutions to keep your smile healthy and bright.
+                        </p>
+                    </div>
+                </div>
+            </div>
 <div className="container" style={{
-      backgroundImage: `url(${backgroundImage})`, // Set background image
-      backgroundSize: 'cover', // Adjust as needed
-      backgroundPosition: 'center', // Adjust as needed
-      marginBottom: 100,
-      marginTop: 100
+      backgroundImage: `url(${backgroundImage})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      ...pageMargins
     }}>
                 <div className="row justify-content-center">
                     <div className="col-lg-6">
@@ -125,54 +143,11 @@ const About = () => {
                     {doctorContent}
                 </div>
             </div>
-            <div className="container say-about" style={{ marginBottom: 100, marginTop: 100 }}>
-                <div className="row">
-                    <div className="col-lg-6 offset-lg-6">
-                        <div className='mb-4 section-title text-center'>
-                            <h2 className='text-uppercase'>TestimoNials</h2>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="row align-items-center">
-                    <div className="col-lg-6 offset-lg-6">
-                        <div className="my-2">
-                            <h4 style={{ color: '#223a66' }} className='my-0'>Feels relaxing!</h4>
-                            <span>Shalakha Suraj</span>
-                        </div>
-                        <p className='form-text'>
-                        The clinic is very beautifully designed and feels relaxing.
-The doctor very patiently listened to my issue and treated me well. Throughout the procedure he ensured my comfort.
-Highly recommended !!
-                        </p>
-                    </div>
-                </div>
-                <div className="row align-items-center">
-                    <div className="col-lg-6 offset-lg-6">
-                        <div className="my-2">
-                            <h4 style={{ color: '#223a66' }} className='my-0'>Modern and impeccably clean!</h4>
-                            <span>Sanskriti Parihar</span>
-                        </div>
-                        <p className='form-text'>
-                        I highly recommend this Clinic for anyone seeking top-notch dental care. From the moment I walked in, I was greeted warmly. The clinic itself is modern and impeccably clean, which immediately put me at ease.
-                        </p>
-                    </div>
-                </div>
-                <div className="row align-items-center">
-                    <div className="col-lg-6 offset-lg-6">
-                        <div className="my-2">
-                            <h4 style={{ color: '#223a66' }} className='my-0'>Highly professional!</h4>
-                            <span>Sujitha Golla</span>
-                        </div>
-                        <p className='form-text'>
-                        Refine Dental Clinic has highly professional and talented doctors.I got my root canal treatment done here. His expertise and the clinic's welcoming atmosphere made the procedure smooth and painless. Highly recommend for quality dental care.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <Footer />
+            {!embedded && <Footer />}
         </>
-    )
+    );
+
+    return pageContent;
 }
 
 export default About

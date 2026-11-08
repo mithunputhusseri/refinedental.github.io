@@ -45,6 +45,14 @@
   color: #1977cc;
 }
 
+#topbar .social-links a.email {
+  color: #1977cc;
+}
+
+#topbar .social-links a.email:hover {
+  color: #0d5cab;
+}
+
 #topbar .social-links a:first-child {
   border-left: 0;
 }

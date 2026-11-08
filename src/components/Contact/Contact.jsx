@@ -5,10 +5,11 @@ import { FaLocationArrow, FaEnvelope, FaPhoneAlt } from "react-icons/fa";
 import Header from '../Shared/Header/Header';
 import './index.css';
 import SubHeader from '../Shared/SubHeader';
+import HomeSectionHeading from '../Shared/HomeSectionHeading';
 import { useContactMutation } from '../../redux/api/contactApi';
 import { message } from 'antd';
 
-const Contact = () => {
+const Contact = ({ embedded = false }) => {
     const [contact, {isLoading, isError, error, isSuccess}]= useContactMutation();
     const { register, handleSubmit, reset } = useForm({});
     const onSubmit = (data) => {
@@ -24,12 +25,21 @@ const Contact = () => {
             message.error(error?.data?.message);
         }
     }, [isSuccess, isError, error])
+    const containerSpacing = embedded
+        ? { marginTop: 0, marginBottom: 40 }
+        : { marginTop: 80, marginBottom: 120 };
+
     return (
         <>
-            <Header />
-            <SubHeader title="Contact us" subtitle="" />
-            <section id="contact" className="contact mt-5 mb-5">
-                <div className="container" style={{ marginTop: 80, marginBottom: 120 }}>
+            {!embedded && (
+                <>
+                    <Header />
+                    <SubHeader title="Contact us" subtitle="" />
+                </>
+            )}
+            {embedded && <HomeSectionHeading title="Contact us" />}
+            <section id="contact" className={`contact ${embedded ? '' : 'mt-5 mb-5'}`}>
+                <div className="container" style={containerSpacing}>
                     <div className="row">
                         
 
@@ -126,7 +136,7 @@ const Contact = () => {
                     </div>
                 </div> */}
             </section>
-            <Footer />
+            {!embedded && <Footer />}
         </>
     )
 }
