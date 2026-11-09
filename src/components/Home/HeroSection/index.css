@@ -1,5 +1,6 @@
 #hero {
     --header-offset: calc(40px + 5.75rem);
+    pointer-events: none;
     width: 100%;
     min-height: calc(90vh - var(--header-offset));
     height: auto;
@@ -25,6 +26,7 @@
   }
 
   #hero .hero-right-copy {
+    pointer-events: auto;
     max-width: 32rem;
     margin-left: auto;
     text-align: right;

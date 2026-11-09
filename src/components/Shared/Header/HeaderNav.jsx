@@ -3,7 +3,7 @@ import { Link, NavLink, useLocation, useNavigate } from "react-router-dom"
 import { FaBars } from "react-icons/fa";
 import { Drawer, Button } from 'antd';
 import { FaHome, FaPhoneAlt, FaWrench, FaAddressBook, FaCalendarCheck } from "react-icons/fa";
-import { scrollToSection } from "../scrollToSection";
+import { goToHomeSection } from "../scrollToSection";
 
 const sectionNavClass = "nav-link scrollto";
 const WHATSAPP_URL = 'https://wa.me/9113206109';
@@ -22,14 +22,9 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
 
     const goToSection = (e, sectionId) => {
         e.preventDefault();
+        e.stopPropagation();
         onClose();
-
-        if (location.pathname !== '/') {
-            navigate('/', { state: { scrollTo: sectionId } });
-            return;
-        }
-
-        scrollToSection(sectionId);
+        goToHomeSection(navigate, location, sectionId);
     };
 
     return (
@@ -42,16 +37,16 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
                         </NavLink>
                     </li>
                     <li>
-                        <a href="#about" className={sectionNavClass} onClick={(e) => goToSection(e, 'about')}>About</a>
+                        <a href="/" className={sectionNavClass} onClick={(e) => goToSection(e, 'about')}>About</a>
                     </li>
                     <li>
-                        <a href="#dental-services" className={sectionNavClass} onClick={(e) => goToSection(e, 'dental-services')}>Service</a>
+                        <a href="/" className={sectionNavClass} onClick={(e) => goToSection(e, 'dental-services')}>Service</a>
                     </li>
                     <li>
-                        <a href="#gallery" className={sectionNavClass} onClick={(e) => goToSection(e, 'gallery')}>Gallery</a>
+                        <a href="/" className={sectionNavClass} onClick={(e) => goToSection(e, 'gallery')}>Gallery</a>
                     </li>
                     <li>
-                        <a href="#contact" className={sectionNavClass} onClick={(e) => goToSection(e, 'contact')}>Contact</a>
+                        <a href="/" className={sectionNavClass} onClick={(e) => goToSection(e, 'contact')}>Contact</a>
                     </li>
                     <li className="nav-appointment-item">
                         <a
@@ -90,22 +85,22 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
                         </NavLink>
                     </li>
                     <li>
-                        <a href="#about" className={sectionNavClass} onClick={(e) => goToSection(e, 'about')}>
+                        <a href="/" className={sectionNavClass} onClick={(e) => goToSection(e, 'about')}>
                             <FaAddressBook className="icon" />About
                         </a>
                     </li>
                     <li>
-                        <a href="#dental-services" className={sectionNavClass} onClick={(e) => goToSection(e, 'dental-services')}>
+                        <a href="/" className={sectionNavClass} onClick={(e) => goToSection(e, 'dental-services')}>
                             <FaWrench className="icon" />Service
                         </a>
                     </li>
                     <li>
-                        <a href="#gallery" className={sectionNavClass} onClick={(e) => goToSection(e, 'gallery')}>
+                        <a href="/" className={sectionNavClass} onClick={(e) => goToSection(e, 'gallery')}>
                             <FaWrench className="icon" />Gallery
                         </a>
                     </li>
                     <li>
-                        <a href="#contact" className={sectionNavClass} onClick={(e) => goToSection(e, 'contact')}>
+                        <a href="/" className={sectionNavClass} onClick={(e) => goToSection(e, 'contact')}>
                             <FaPhoneAlt className="icon" />Contact
                         </a>
                     </li>

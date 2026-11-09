@@ -49,7 +49,7 @@ const SpecialityLink = ({ item }) => (
 
 const ClinicAndSpecialities = () => {
 	return (
-		<section id="dental-services" className="section section-specialities position-relative">
+		<section className="section section-specialities position-relative">
 			<div className="container-fluid">
 				<div className="mb-0 section-title text-center">
 					<p className="m-0"><h2>DENTAL SERVICES</h2></p>

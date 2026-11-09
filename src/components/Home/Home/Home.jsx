@@ -16,15 +16,22 @@ const Home = () => {
     const location = useLocation();
 
     useEffect(() => {
-        const sectionId = location.state?.scrollTo;
+        const fromState = location.state?.scrollTo;
+        const fromPath = location.pathname.replace(/^\//, '');
+        const sectionId =
+            fromState ||
+            (['about', 'dental-services', 'gallery', 'testimonials', 'contact'].includes(fromPath)
+                ? fromPath
+                : null);
+
         if (!sectionId) return;
 
         const timer = setTimeout(() => {
             scrollToSection(sectionId);
-        }, 100);
+        }, 150);
 
         return () => clearTimeout(timer);
-    }, [location.state?.scrollTo]);
+    }, [location.state?.scrollTo, location.pathname]);
 
     return (
         <>
@@ -35,7 +42,9 @@ const Home = () => {
                 <div id="about" className="home-section">
                     <About embedded />
                 </div>
-                <ClinicAndSpecialities />
+                <div id="dental-services" className="home-section-anchor">
+                    <ClinicAndSpecialities />
+                </div>
             </div>
             <div id="gallery" className="home-section">
                 <Gallery embedded />

@@ -17,3 +17,7 @@
     padding-top: 1.25rem;
     padding-bottom: 2.5rem;
 }
+
+.home-section-anchor {
+    scroll-margin-top: 110px;
+}
