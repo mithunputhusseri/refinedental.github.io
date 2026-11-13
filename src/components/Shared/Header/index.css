@@ -208,6 +208,9 @@
     font-weight: 600;
     border: none;
     border-bottom: none !important;
+    font-family: inherit;
+    cursor: pointer;
+    line-height: inherit;
 }
 
 .navbar .nav-appointment-btn:hover {

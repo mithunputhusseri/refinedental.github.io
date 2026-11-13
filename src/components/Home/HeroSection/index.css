@@ -1,15 +1,18 @@
 #hero {
     --header-offset: calc(40px + 5.75rem);
+    position: relative;
+    overflow: hidden;
     pointer-events: none;
     width: 100%;
-    min-height: calc(90vh - var(--header-offset));
+    min-height: calc(112vh - var(--header-offset) + 1in);
     height: auto;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-top: 2.5rem;
+    padding-bottom: 3.75rem;
+    background-color: #fff;
     background-image: url("../../../images/img/hero-clinic-reception.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: 14% 32%;
+    background-position: 30% calc(50% + 1in);
     background-attachment: scroll;
     margin-bottom: -115px;
     margin-top: var(--header-offset);
@@ -17,11 +20,12 @@
 
   #hero .hero-layout {
     position: relative;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     justify-content: center;
-    min-height: calc(85vh - var(--header-offset) - 3rem);
+    min-height: calc(98vh - var(--header-offset) - 3rem + 1in);
     width: 100%;
   }
 
@@ -35,6 +39,7 @@
 
   #hero .hero-location {
     margin: 0 0 0.85rem;
+    transform: translateY(-0.5in);
     font-family: 'Montserrat', 'Poppins', sans-serif;
     font-size: clamp(0.75rem, 1.25vw, 0.9rem);
     font-weight: 700;
@@ -42,11 +47,17 @@
     text-transform: uppercase;
     letter-spacing: 0.14em;
     color: #fff;
-    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.45);
+    text-shadow:
+      0 6px 14px rgba(0, 0, 0, 0.88),
+      0 14px 36px rgba(0, 0, 0, 0.78),
+      0 28px 64px rgba(0, 0, 0, 0.68),
+      0 48px 96px rgba(0, 0, 0, 0.58),
+      0 72px 140px rgba(0, 0, 0, 0.46);
   }
 
   #hero .hero-brand-name {
     margin: 0;
+    transform: translateY(-0.5in);
     font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
     font-size: clamp(2.75rem, 6.8vw, 5.25rem);
     font-weight: 700;
@@ -54,7 +65,12 @@
     letter-spacing: 0.02em;
     color: #fff;
     text-transform: none;
-    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.5);
+    text-shadow:
+      0 6px 14px rgba(0, 0, 0, 0.88),
+      0 14px 36px rgba(0, 0, 0, 0.78),
+      0 28px 64px rgba(0, 0, 0, 0.68),
+      0 48px 96px rgba(0, 0, 0, 0.58),
+      0 72px 140px rgba(0, 0, 0, 0.46);
     -webkit-font-smoothing: antialiased;
   }
 
@@ -66,18 +82,39 @@
     font-weight: 600;
     letter-spacing: 0.03em;
     color: #fff;
+    text-shadow:
+      0 6px 14px rgba(0, 0, 0, 0.88),
+      0 14px 36px rgba(0, 0, 0, 0.78),
+      0 28px 64px rgba(0, 0, 0, 0.68),
+      0 48px 96px rgba(0, 0, 0, 0.58),
+      0 72px 140px rgba(0, 0, 0, 0.46);
   }
 
   #hero .hero-tagline {
-    margin: 1rem 0 0;
+    position: absolute;
+    bottom: clamp(1.25rem, 3.5vh, 2.75rem);
+    left: 50%;
+    right: auto;
+    width: max-content;
+    max-width: min(36rem, calc(100% - 2rem));
+    transform: translateX(-50%);
+    margin: 0;
+    padding: 0 1rem;
+    pointer-events: auto;
     font-family: 'Montserrat', 'Poppins', sans-serif;
     font-size: clamp(1.05rem, 2.1vw, 1.35rem);
     font-weight: 700;
     line-height: 1.55;
     letter-spacing: 0.14em;
     text-transform: uppercase;
+    text-align: center;
     color: #fff;
-    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.45);
+    text-shadow:
+      0 6px 14px rgba(0, 0, 0, 0.88),
+      0 14px 36px rgba(0, 0, 0, 0.78),
+      0 28px 64px rgba(0, 0, 0, 0.68),
+      0 48px 96px rgba(0, 0, 0, 0.58),
+      0 72px 140px rgba(0, 0, 0, 0.46);
   }
 
   #hero .btn-get-started {
@@ -99,16 +136,22 @@
     background: #3291e6;
   }
 
+  /* Book Appointment / Explore Our Services (InfoPage below hero) */
+  #home .quick-actions {
+    transform: translateY(-0.75in);
+  }
+
   @media (max-width: 992px) {
     #hero {
       --header-offset: calc(40px + 5.25rem);
       margin-bottom: 0;
-      min-height: calc(100vh - var(--header-offset));
-      background-position: 16% 30%;
+      min-height: calc(108vh - var(--header-offset) + 1in);
+      background-size: cover;
+      background-position: 32% calc(50% + 1in);
     }
 
     #hero .hero-layout {
-      min-height: calc(75vh - var(--header-offset));
+      min-height: calc(92vh - var(--header-offset) + 1in);
       padding-bottom: 3rem;
     }
 
@@ -119,8 +162,14 @@
 
   @media (max-width: 600px) {
     #hero {
-      min-height: calc(60vh - var(--header-offset));
-      background-position: 20% 28%;
+      min-height: calc(88vh - var(--header-offset) + 1in);
+      padding-bottom: 3rem;
+      background-size: cover;
+      background-position: 28% calc(50% + 1in);
+    }
+
+    #hero .hero-layout {
+      min-height: calc(80vh - var(--header-offset) + 1in);
     }
 
     #hero .hero-right-copy {

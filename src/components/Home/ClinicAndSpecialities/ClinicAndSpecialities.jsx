@@ -1,32 +1,61 @@
 import React from 'react';
-import img1 from '../../../images/specialities/root canal.png';
-import img3 from '../../../images/specialities/Laser dentistry.png';
-import img4 from '../../../images/specialities/OS.png';
-import img5 from '../../../images/specialities/Periodontics_1.jpg';
-import img6 from '../../../images/specialities/Full Mouth Rehabilitation.png';
-import img7 from '../../../images/specialities/prosthodontics.jpg';
-import img8 from '../../../images/specialities/Dental Implants.png';
-import img9 from '../../../images/specialities/Pedodontics.png';
-import img10 from '../../../images/specialities/orthodontic_3954427.png';
-import img12 from '../../../images/specialities/aligners.png';
-import { FaCheckDouble } from 'react-icons/fa';
+import imgEndodontics from '../../../images/specialities/endodontics-icon.jpg';
+import imgLaserDentistry from '../../../images/specialities/laser-dentistry-icon.png';
+import imgOralSurgery from '../../../images/specialities/oral-surgery-icon.webp';
+import imgPeriodontics from '../../../images/specialities/periodontics-icon.webp';
+import imgFullMouth from '../../../images/specialities/full-mouth-rehabilitation-icon.png';
+import imgProsthodontics from '../../../images/specialities/prosthodontics-icon.jpg';
+import imgDentalImplants from '../../../images/specialities/dental-implants-icon.webp';
+import imgPedodontics from '../../../images/specialities/pedodontics-icon.webp';
+import imgOrthodontics from '../../../images/specialities/orthodontics-icon.png';
+import imgAligners from '../../../images/specialities/aligners-icon.jpg';
 import { Link } from 'react-router-dom';
 import './index.css';
 
 const dentalServicesRow1 = [
-	{ label: 'Dental Implants', img: img8, slug: 'dental-implants', photo: false },
-	{ label: 'Aligners', img: img12, slug: 'orthodontics', photo: false },
-	{ label: 'Laser Dentistry', img: img3, slug: 'laser-dentistry', photo: false },
-	{ label: 'Orthodontics', img: img10, slug: 'orthodontics', photo: false },
-	{ label: 'Periodontics', img: img5, slug: 'periodontics', photo: true },
-	{ label: 'Full Mouth Rehabilitation', img: img6, slug: 'full-mouth-rehabilitation', photo: false },
+	{ label: 'Dental Implants', img: imgDentalImplants, slug: 'dental-implants', photo: false },
+	{ label: 'Aligners', img: imgAligners, slug: 'orthodontics', photo: false },
+	{
+		label: 'Laser Dentistry',
+		img: imgLaserDentistry,
+		slug: 'laser-dentistry',
+		photo: false,
+		iconClass: 'speicality-icon-img--laser-dentistry',
+	},
+	{ label: 'Orthodontics', img: imgOrthodontics, slug: 'orthodontics', photo: false },
+	{ label: 'Periodontics', img: imgPeriodontics, slug: 'periodontics', photo: false },
+	{
+		label: 'Full Mouth Rehabilitation',
+		img: imgFullMouth,
+		slug: 'full-mouth-rehabilitation',
+		photo: false,
+		iconClass: 'speicality-icon-img--full-mouth',
+	},
 ];
 
 const dentalServicesRow2 = [
-	{ label: 'Endodontics', img: img1, slug: 'conservative-endodontics', photo: false },
-	{ label: 'Pedodontics', img: img9, slug: 'pedodontics', photo: false },
-	{ label: 'Oral Surgery', img: img4, slug: 'oral-surgery', photo: false },
-	{ label: 'Prosthodontics', img: img7, slug: 'prosthodontics', photo: true },
+	{
+		label: 'Endodontics',
+		img: imgEndodontics,
+		slug: 'conservative-endodontics',
+		photo: false,
+		iconClass: 'speicality-icon-img--endodontics',
+	},
+	{
+		label: 'Pedodontics',
+		img: imgPedodontics,
+		slug: 'pedodontics',
+		photo: false,
+		iconClass: 'speicality-icon-img--pedodontics',
+	},
+	{
+		label: 'Oral Surgery',
+		img: imgOralSurgery,
+		slug: 'oral-surgery',
+		photo: false,
+		iconClass: 'speicality-icon-img--oral-surgery',
+	},
+	{ label: 'Prosthodontics', img: imgProsthodontics, slug: 'prosthodontics', photo: false },
 ];
 
 const SpecialityLink = ({ item }) => (
@@ -34,14 +63,11 @@ const SpecialityLink = ({ item }) => (
 		<div className="speicality-img">
 			<img
 				src={item.img}
-				className={`img-fluid speicality-icon-img${item.photo ? ' speicality-icon-img--photo' : ''}`}
+				className={`img-fluid speicality-icon-img${item.photo ? ' speicality-icon-img--photo' : ''}${item.iconClass ? ` ${item.iconClass}` : ''}`}
 				alt={item.label}
 				loading="lazy"
 				decoding="async"
 			/>
-			<span className="speicality-check">
-				<FaCheckDouble />
-			</span>
 		</div>
 		{item.label && <p>{item.label}</p>}
 	</Link>
@@ -57,7 +83,7 @@ const ClinicAndSpecialities = () => {
 
 				<div className="row justify-content-center">
 					<div className="col-md-9">
-						<div className="specialities-slider d-flex justify-content-center align-items-center gap-5">
+						<div className="specialities-slider specialities-slider--row1 d-flex justify-content-center align-items-start gap-5">
 							{dentalServicesRow1.map((item) => (
 								<SpecialityLink key={item.label} item={item} />
 							))}

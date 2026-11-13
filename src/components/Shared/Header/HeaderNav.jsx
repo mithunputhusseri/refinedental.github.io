@@ -2,11 +2,11 @@ import { Popover } from "antd"
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom"
 import { FaBars } from "react-icons/fa";
 import { Drawer, Button } from 'antd';
-import { FaHome, FaPhoneAlt, FaWrench, FaAddressBook, FaCalendarCheck } from "react-icons/fa";
+import { FaHome, FaPhoneAlt, FaWrench, FaAddressBook, FaCalendarCheck, FaQuestionCircle } from "react-icons/fa";
 import { goToHomeSection } from "../scrollToSection";
+import { openWhatsApp } from '../../../constants/siteLinks';
 
 const sectionNavClass = "nav-link scrollto";
-const WHATSAPP_URL = 'https://wa.me/9113206109';
 
 const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
     const navigate = useNavigate();
@@ -46,17 +46,21 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
                         <a href="/" className={sectionNavClass} onClick={(e) => goToSection(e, 'gallery')}>Gallery</a>
                     </li>
                     <li>
+                        <NavLink to="/faq" className={({ isActive }) => isActive ? "nav-link scrollto active" : "nav-link scrollto"}>
+                            FAQs
+                        </NavLink>
+                    </li>
+                    <li>
                         <a href="/" className={sectionNavClass} onClick={(e) => goToSection(e, 'contact')}>Contact</a>
                     </li>
                     <li className="nav-appointment-item">
-                        <a
-                            href={WHATSAPP_URL}
+                        <button
+                            type="button"
                             className="nav-appointment-btn"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            onClick={openWhatsApp}
                         >
                             Book Appointment
-                        </a>
+                        </button>
                     </li>
                 </ul>
                 {isLoggedIn &&
@@ -100,20 +104,26 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
                         </a>
                     </li>
                     <li>
+                        <NavLink to="/faq" onClick={onClose} className={({ isActive }) => isActive ? "nav-link scrollto active" : "nav-link scrollto"}>
+                            <FaQuestionCircle className="icon" />FAQs
+                        </NavLink>
+                    </li>
+                    <li>
                         <a href="/" className={sectionNavClass} onClick={(e) => goToSection(e, 'contact')}>
                             <FaPhoneAlt className="icon" />Contact
                         </a>
                     </li>
                     <li>
-                        <a
-                            href={WHATSAPP_URL}
+                        <button
+                            type="button"
                             className="nav-appointment-btn nav-appointment-btn--mobile"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={onClose}
+                            onClick={() => {
+                                onClose();
+                                openWhatsApp();
+                            }}
                         >
                             <FaCalendarCheck className="icon" />Book Appointment
-                        </a>
+                        </button>
                     </li>
                 </ul>
             </Drawer>

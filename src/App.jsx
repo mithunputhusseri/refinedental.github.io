@@ -42,6 +42,7 @@ import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import NotFound from './components/UI/NotFound';
 import ServiceDetail from './components/Service/ServiceDetail';
 import GoogleReviewFab from './components/Shared/GoogleReviewFab';
+import Faq from './components/Faq/Faq';
 
 function App() {
   return (
@@ -70,6 +71,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/blog' element={<Blog />} />
         <Route path='/blog/:id' element={<BlogDetails />} />
+        <Route path='/faq' element={<Faq />} />
         <Route path='/contact' element={<Navigate to="/" state={{ scrollTo: 'contact' }} replace />} />
         <Route path='/about' element={<Navigate to="/" state={{ scrollTo: 'about' }} replace />} />
         <Route path='/service' element={<Navigate to="/" state={{ scrollTo: 'dental-services' }} replace />} />

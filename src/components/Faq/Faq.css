@@ -1,0 +1,30 @@
+.faq-page {
+	margin-top: 150px;
+	margin-bottom: 100px;
+	max-width: 820px;
+}
+
+.faq-page-intro {
+	margin-bottom: 1.75rem;
+	color: #3d4f65;
+	font-size: 1.05rem;
+}
+
+.faq-accordion .ant-collapse-item {
+	margin-bottom: 0.75rem;
+	border: 1px solid rgba(34, 58, 102, 0.12) !important;
+	border-radius: 10px !important;
+	overflow: hidden;
+	background: #fff;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.faq-accordion .ant-collapse-header {
+	font-weight: 600;
+	color: #223a66 !important;
+}
+
+.faq-accordion .ant-collapse-content-box {
+	color: #3d4f65;
+	line-height: 1.65;
+}

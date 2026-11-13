@@ -65,7 +65,9 @@ const Contact = ({ embedded = false }) => {
                                     <FaPhoneAlt className='icon' />
                                     <div>
                                         <h4>Call:</h4>
-                                        <p>+91 9916315836</p>
+                                        <p>
+                                            <a href="tel:+919113206109">+91 9113206109</a>
+                                        </p>
                                     </div>
                                 </div>
                             </div>

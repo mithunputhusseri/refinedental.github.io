@@ -41,6 +41,11 @@ export const scrollToSection = (sectionId) => {
 };
 
 export const goToHomeSection = (navigate, location, sectionId) => {
+	if (typeof document !== 'undefined' && document.getElementById(sectionId)) {
+		scrollToSection(sectionId);
+		return;
+	}
+
 	if (!isHomePath(location.pathname)) {
 		navigate('/', { state: { scrollTo: sectionId } });
 		return;

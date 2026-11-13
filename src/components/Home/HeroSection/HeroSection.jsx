@@ -13,13 +13,13 @@ const HeroSection = () => {
                         ReFine Dental
                         <span className="hero-brand-sub">&amp; Facial Aesthetic Centre</span>
                     </h1>
-                    <p className="hero-tagline">
-                        REDEFINING DENTAL EXPERIENCE
-                        <br />
-                        RESHAPING SMILES
-                    </p>
                 </div>
             </div>
+            <p className="hero-tagline">
+                REDEFINING DENTAL EXPERIENCE
+                <br />
+                RESHAPING SMILES
+            </p>
         </section>
     );
 };

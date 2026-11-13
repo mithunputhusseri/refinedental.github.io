@@ -31,23 +31,25 @@ import bgImage1 from '../../images/img/banner.jpg';
 import backgroundImage from '../../images/doc/bgd.png';
 import { Image } from 'antd';
 import HomeSectionHeading from '../Shared/HomeSectionHeading';
+import { publicAsset } from '../../utils/publicAsset';
+
+const GALLERY_FILES = [
+    'IMG_0784 (1).png',
+    'DSC_0093.png',
+    'DSC_0117.png',
+    'DSC_0115.png',
+    'IMG_0778 (1).png',
+    'DSC_0121.png',
+    'DSC_0109.png',
+    'IMG_0775 (1).png',
+    'Watermark (1).png',
+    'Watermark (2).png',
+    'teet.png',
+    'Laser crown exposure.png',
+];
 
 const Gallery = ({ embedded = false }) => {
-    // const imageArray = [img10,img11,img12,img13,img2,img3,img4,img5,img6,img7, img8, img9]
-    const imageArray = [
-        '/newgallery/IMG_0784 (1).png',
-        '/newgallery/DSC_0093.png',
-        '/newgallery/DSC_0117.png',
-        '/newgallery/DSC_0115.png',
-        '/newgallery/IMG_0778 (1).png',
-        '/newgallery/DSC_0121.png',
-        '/newgallery/DSC_0109.png',
-        '/newgallery/IMG_0775 (1).png',
-        '/newgallery/Watermark (1).png',
-        '/newgallery/Watermark (2).png',
-        '/newgallery/teet.png',
-        '/newgallery/Laser crown exposure.png'
-    ]
+    const imageArray = GALLERY_FILES.map((file) => publicAsset(`newgallery/${file}`));
     
     return (
         <>
