@@ -42,13 +42,23 @@ import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import NotFound from './components/UI/NotFound';
 import ServiceDetail from './components/Service/ServiceDetail';
 import GoogleReviewFab from './components/Shared/GoogleReviewFab';
+import MobileStickyBar from './components/Shared/MobileStickyBar/MobileStickyBar';
+import SeoSchema from './components/Shared/SeoSchema';
+import SeoHead from './components/Shared/SeoHead';
+import GoogleAnalytics from './components/Shared/GoogleAnalytics';
+import SearchConsoleMeta from './components/Shared/SearchConsoleMeta';
 import Faq from './components/Faq/Faq';
 
 function App() {
   return (
     <Router>
+      <SeoSchema />
+      <SearchConsoleMeta />
+      <SeoHead />
+      <GoogleAnalytics />
       <ScrollToTop />
       <GoogleReviewFab />
+      <MobileStickyBar />
       <Routes>
         <Route element={<PrivateOutlet />}>
           <Route path='/dashboard/blogs' element={<Blogs />} />

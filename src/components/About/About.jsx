@@ -14,9 +14,8 @@ import { Link } from 'react-router-dom';
 import { truncate } from '../../utils/truncate';
 import { useGetDoctorsQuery } from '../../redux/api/doctorApi';
 import doctorimage from '../../images/doc/doc1.jpg';
-import amalimage from '../../images/doc/tooth.jpg';
-import amalimage2 from '../../images/doc/tooth.jpg';
-import nikhilimage2 from '../../images/doc/doc1.jpg';
+import amalimage2 from '../../images/doc/dr-amal-hari.jpg';
+import nikhilimage2 from '../../images/doc/dr-nikhil-johnson.jpg';
 import bgImage1 from '../../images/img/banner.jpg';
 import backgroundImage from '../../images/doc/bgd.png';
 
@@ -52,7 +51,7 @@ const About = ({ embedded = false }) => {
             <div className="col-lg-3 col-md-6 col-sm-6">
                 <div className="card shadow border-0 mb-5 mb-lg-0 about-team-card about-team-card--first">
                     <div className="about-team-photo">
-                        <img src={amalimage2} className="img-fluid w-100 about-team-img" alt="Dr. Amal Hari" />
+                        <img src={amalimage2} className="img-fluid w-100 about-team-img about-team-img--amal" alt="Dr. Amal Hari" />
                     </div>
                     <div className="p-2">
                         <h4 className="mt-4 mb-0" style={{ color: '#223a66' }}>
@@ -66,7 +65,7 @@ const About = ({ embedded = false }) => {
             <div className="col-lg-3 col-md-6 col-sm-6">
                 <div className="card shadow border-0 mb-5 mb-lg-0 about-team-card about-team-card--second">
                     <div className="about-team-photo">
-                        <img src={nikhilimage2} className="img-fluid w-100 about-team-img" alt="Dr. Nikhil Johnson" />
+                        <img src={nikhilimage2} className="img-fluid w-100 about-team-img about-team-img--nikhil" alt="Dr. Nikhil Johnson" />
                     </div>
                     <div className="p-2">
                         <h4 className="mt-4 mb-0" style={{ color: '#223a66' }}>

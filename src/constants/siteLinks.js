@@ -1,4 +1,6 @@
 export const WHATSAPP_URL = 'https://wa.me/9113206109';
+export const CLINIC_PHONE_TEL = 'tel:+919113206109';
+export const CLINIC_PHONE_DISPLAY = '+91 9113206109';
 
 /** Opens WhatsApp reliably (works on GitHub Pages and in mobile browsers). */
 export const openWhatsApp = () => {

@@ -1,0 +1,87 @@
+.mobile-sticky-bar {
+	display: none;
+}
+
+@media (max-width: 991px) {
+	:root {
+		--mobile-sticky-bar-height: 4.25rem;
+	}
+
+	body {
+		padding-bottom: calc(var(--mobile-sticky-bar-height) + env(safe-area-inset-bottom, 0px));
+	}
+
+	.mobile-sticky-bar {
+		position: fixed;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 1040;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 0.35rem;
+		padding: 0.5rem 0.65rem calc(0.5rem + env(safe-area-inset-bottom, 0px));
+		background: #fff;
+		box-shadow: 0 -2px 15px rgba(25, 119, 204, 0.12);
+		border-top: 1px solid rgba(25, 119, 204, 0.1);
+		font-family: 'Poppins', sans-serif;
+	}
+
+	.mobile-sticky-bar__action {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 0.2rem;
+		min-height: 48px;
+		padding: 0.4rem 0.35rem;
+		border: none;
+		border-radius: 12px;
+		font-size: 0.72rem;
+		font-weight: 600;
+		line-height: 1.2;
+		text-decoration: none;
+		text-align: center;
+		cursor: pointer;
+		transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+	}
+
+	.mobile-sticky-bar__action:active {
+		transform: scale(0.98);
+	}
+
+	.mobile-sticky-bar__icon {
+		font-size: 1.15rem;
+		flex-shrink: 0;
+	}
+
+	.mobile-sticky-bar__action--book {
+		background: #f26522;
+		color: #fff;
+	}
+
+	.mobile-sticky-bar__action--book:hover {
+		background: #e05818;
+		color: #fff;
+	}
+
+	.mobile-sticky-bar__action--call {
+		background: #1977cc;
+		color: #fff;
+	}
+
+	.mobile-sticky-bar__action--call:hover {
+		background: #166ab5;
+		color: #fff;
+	}
+
+	.mobile-sticky-bar__action--whatsapp {
+		background: #e8f5e9;
+		color: #128c7e;
+	}
+
+	.mobile-sticky-bar__action--whatsapp:hover {
+		background: #128c7e;
+		color: #fff;
+	}
+}

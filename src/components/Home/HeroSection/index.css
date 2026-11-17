@@ -6,7 +6,7 @@
     width: 100%;
     min-height: calc(112vh - var(--header-offset) + 1in);
     height: auto;
-    padding-top: 2.5rem;
+    padding-top: calc(var(--header-offset) + 2.5rem);
     padding-bottom: 3.75rem;
     background-color: #fff;
     background-image: url("../../../images/img/hero-clinic-reception.jpg");
@@ -15,7 +15,7 @@
     background-position: 30% calc(50% + 1in);
     background-attachment: scroll;
     margin-bottom: -115px;
-    margin-top: var(--header-offset);
+    margin-top: 0;
   }
 
   #hero .hero-layout {

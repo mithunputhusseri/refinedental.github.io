@@ -54,10 +54,16 @@
 	color: #f4b400;
 }
 
+@media (max-width: 991px) {
+	.google-review-fab {
+		bottom: calc(4.25rem + 18px + env(safe-area-inset-bottom, 0px));
+	}
+}
+
 @media (max-width: 767px) {
 	.google-review-fab {
 		left: 12px;
-		bottom: 18px;
+		bottom: calc(4.25rem + 18px + env(safe-area-inset-bottom, 0px));
 		gap: 0.5rem;
 		padding: 0.55rem 0.85rem 0.55rem 0.65rem;
 	}
